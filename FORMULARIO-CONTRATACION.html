@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contratación Intranet AAVV.com</title>
+  <style>
+    :root {
+      --primary-color: #0056b3;
+      --secondary-color: #e9ecef;
+      --accent-color: #17a2b8;
+      --text-color: #333;
+      --light-text: #6c757d;
+      --border-color: #dee2e6;
+      --success-color: #28a745;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      color: var(--text-color);
+      background-color: #f8f9fa;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    header h1 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--light-text);
+      font-size: 1.1rem;
+    }
+
+    .promocion {
+      background-color: var(--success-color);
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 2rem;
+      font-weight: bold;
+    }
+
+    .form-section {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-header {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      flex: 1 1 300px;
+      margin-bottom: 1.5rem;
+      padding-right: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .checkbox-item {
+      flex: 1 1 220px;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+
+    .sucursales {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .sucursal {
+      flex: 1 1 300px;
+      padding: 1.5rem;
+      background-color: var(--secondary-color);
+      border-radius: 8px;
+    }
+
+    .tarifas {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .tarifas th,
+    .tarifas td {
+      border: 1px solid var(--border-color);
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    .tarifas th {
+      background-color: var(--secondary-color);
+    }
+
+    .tarifas td:last-child {
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .submit-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .privacy-policy {
+      flex: 1;
+    }
+
+    button[type="submit"] {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #004494;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: var(--light-text);
+      margin-top: 2rem;
+    }
+
+    .nota {
+      background-color: #fff3cd;
+      padding: 0.75rem;
+      border-left: 4px solid #ffc107;
+      margin: 1rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .form-group {
+        flex: 1 1 100%;
+      }
+
+      .submit-row {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .privacy-policy {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>FORMULARIO DE CONTRATACIÓN INTRANET AAVV.COM</h1>
+      <p>Complete todos los campos para solicitar su acceso a la plataforma</p>
+    </header>
+
+    <div class="promocion">
+      GRATUITO HASTA EL 31-12-25
+    </div>
+
+    <form id="contratacion-form">
+      <div class="form-section">
+        <h2 class="section-header">DATOS DE LA AGENCIA SOLICITANTE</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="razonSocial">Razón Social:</label>
+            <input type="text" id="razonSocial" name="razonSocial" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cif">CIF:</label>
+            <input type="text" id="cif" name="cif" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombreComercial">Nombre Comercial (en caso de que no coincida con la Razón Social):</label>
+            <input type="text" id="nombreComercial" name="nombreComercial">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="domicilioSocial">Domicilio social:</label>
+            <input type="text" id="domicilioSocial" name="domicilioSocial" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="codigoPostal">Código Postal:</label>
+            <input type="text" id="codigoPostal" name="codigoPostal" required>
+          </div>
+
+          <div class="form-group">
+            <label for="poblacion">Población:</label>
+            <input type="text" id="poblacion" name="poblacion" required>
+          </div>
+
+          <div class="form-group">
+            <label for="provincia">Provincia:</label>
+            <input type="text" id="provincia" name="provincia" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+          </div>
+
+          <div class="form-group">
+            <label for="fax">Fax:</label>
+            <input type="tel" id="fax" name="fax">
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="representanteLegal">Representante Legal:</label>
+            <input type="text" id="representanteLegal" name="representanteLegal" required>
+          </div>
+
+          <div class="form-group">
+            <label for="tituloLicencia">Titulo-Licencia Agencia:</label>
+            <input type="text" id="tituloLicencia" name="tituloLicencia" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>IATA:</label>
+            <div>
+              <label style="display: inline; margin-right: 20px;">
+                <input type="radio" name="iata" value="no" checked> No
+              </label>
+              <label style="display: inline;">
+                <input type="radio" name="iata" value="si"> Sí
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tituloIATA">Título IATA (en caso afirmativo):</label>
+            <input type="text" id="tituloIATA" name="tituloIATA">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="grupos">Grupos y/o Asociaciones a los que pertenece:</label>
+            <input type="text" id="grupos" name="grupos">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2 class="section-header">DATOS DE LAS SUCURSALES</h2>
+
+        <div class="sucursales">
+          <div class="sucursal">
+            <h3>Sucursal 1</h3>
+            <div class="form-group">
+              <label for="sucursal1Domicilio">Domicilio:</label>
+              <input type="text" id="sucursal1Domicilio" name="sucursal1Domicilio">
+            </div>
+
+            <div class="form-group">
+              <label for="sucursal1CP">Código Postal:</label>
+              <input type="text" id="sucursal1CP" name="sucursal1CP">
+            </div>
+
+            <div class="form-group">
+              <label for="sucursal1Poblacion">Población:</label>
+              <input type="text" id="sucursal1Poblacion" name="sucursal1Poblacion">
+            </div>
+
+            <div class="form-group">
+              <label for="sucursal1Provincia">Provincia:</label>
+              <input type="text" id="sucursal1Provincia" name="sucursal1Provincia">
+            </div>
+
+            <div class="form-group">
+              <label for="sucursal1Telefono">Teléfono:</label>
+              <input type="tel" id="sucursal1Telefono" name="sucursal1Telefono">
+            </div>
+
+            <div class="form-group">
+              <label for="sucursal1Email">Email:</label>
+              <input type="email" id="sucursal1Email" name="sucursal1Email">
+            </div>
+          </div>
+
+          <div class="sucursal">
+            <h3>Sucursal 2</h3>
+            <div class="form-group">
+              <label for="sucursal2Domicilio">Domicilio:</label>
+              <input type="text" id="sucursal2Domicilio" name="sucursal2Domicilio">
+            </div>
+
+            <div class="form-group">
+              <label for="sucursal2CP">Código Postal:</label>
+              <input type="text" id="sucursal2CP" name="sucursal2CP">
+            </div>
+
+            <div class="form-group">
+              <label for="sucursal2Poblacion">Población:</label>
+              <input type="text" id="sucursal2Poblacion" name="sucursal2Poblacion">
+            </div>
+
+            <div class="form-group">
+              <label for="sucursal2Provincia">Provincia:</label>
+              <input type="text" id="sucursal2Provincia" name="sucursal2Provincia">
+            </div>
+
+            <div class="form-group">
+              <label for="sucursal2Telefono">Teléfono:</label>
+              <input type="tel" id="sucursal2Telefono" name="sucursal2Telefono">
+            </div>
+
+            <div class="form-group">
+              <label for="sucursal2Email">Email:</label>
+              <input type="email" id="sucursal2Email" name="sucursal2Email">
+            </div>
+          </div>
+        </div>
+
+        <div class="nota">
+          <strong>Nota:</strong> Si dispone de más oficinas, por favor, adjunte varias copias de este formulario.
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2 class="section-header">DATOS DE CONTRATACIÓN</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Aplicación de Gestión utilizada:</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="radio" id="gestionNinguno" name="gestion" value="ninguno" checked>
+                <label for="gestionNinguno">Ninguno</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="radio" id="gestionOrbis" name="gestion" value="orbis">
+                <label for="gestionOrbis">Orbis</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="radio" id="gestionOtro" name="gestion" value="otro">
+                <label for="gestionOtro">Otro</label>
+              </div>
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+              <label for="gestionOtroDetalle">Indique cual:</label>
+              <input type="text" id="gestionOtroDetalle" name="gestionOtroDetalle">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>GDS utilizado:</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="radio" id="gdsNinguno" name="gds" value="ninguno" checked>
+                <label for="gdsNinguno">Ninguno</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="radio" id="gdsAmadeus" name="gds" value="amadeus">
+                <label for="gdsAmadeus">Amadeus</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="radio" id="gdsSabre" name="gds" value="sabre">
+                <label for="gdsSabre">Sabre</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="radio" id="gdsTravelport" name="gds" value="travelport">
+                <label for="gdsTravelport">Travelport (Galileo, Worldspan)</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="radio" id="gdsOtro" name="gds" value="otro">
+                <label for="gdsOtro">Otro</label>
+              </div>
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+              <label for="gdsOtroDetalle">Indique cual:</label>
+              <input type="text" id="gdsOtroDetalle" name="gdsOtroDetalle">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Seleccione los proveedores de Orbis Hoteles Pro en los que esté interesado:</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="provBedsonline" name="proveedores[]" value="Bedsonline">
+                <label for="provBedsonline">Bedsonline</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provAbreu" name="proveedores[]" value="Abreu">
+                <label for="provAbreu">Abreu</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provJumbobeds" name="proveedores[]" value="Jumbobeds">
+                <label for="provJumbobeds">Jumbobeds</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provRestel" name="proveedores[]" value="Restel">
+                <label for="provRestel">Restel</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provW2MPro" name="proveedores[]" value="W2M Pro">
+                <label for="provW2MPro">W2M Pro</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provWelcomebeds" name="proveedores[]" value="Welcomebeds">
+                <label for="provWelcomebeds">Welcomebeds</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provTour10" name="proveedores[]" value="Tour10">
+                <label for="provTour10">Tour10</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provVeturis" name="proveedores[]" value="Veturis">
+                <label for="provVeturis">Veturis</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provEuroplayas" name="proveedores[]" value="Europlayas">
+                <label for="provEuroplayas">Europlayas</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provGoGlobalTravel" name="proveedores[]" value="Go Global Travel">
+                <label for="provGoGlobalTravel">Go Global Travel</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provSoltour" name="proveedores[]" value="Soltour">
+                <label for="provSoltour">Soltour</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provIristour" name="proveedores[]" value="Iristour">
+                <label for="provIristour">Iristour</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provRateHawk" name="proveedores[]" value="Rate Hawk">
+                <label for="provRateHawk">Rate Hawk</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provSolole" name="proveedores[]" value="Solole">
+                <label for="provSolole">Solole</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provOlympia" name="proveedores[]" value="Olympia">
+                <label for="provOlympia">Olympia</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provImperatoreTravel" name="proveedores[]" value="Imperatore Travel">
+                <label for="provImperatoreTravel">Imperatore Travel</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provTeldarTravel" name="proveedores[]" value="Teldar Travel">
+                <label for="provTeldarTravel">Teldar Travel</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provCanariasEuropa" name="proveedores[]" value="Canarias Europa">
+                <label for="provCanariasEuropa">Canarias Europa</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provKeytel" name="proveedores[]" value="Keytel">
+                <label for="provKeytel">Keytel</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="provEverooms" name="proveedores[]" value="Everooms">
+                <label for="provEverooms">Everooms</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2 class="section-header">INTRANET AAVV.com</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="numUsuarios">Número de Usuarios:</label>
+            <input type="number" id="numUsuarios" name="numUsuarios" min="1" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="activarBSP" name="activarBSP" value="1">
+              <label for="activarBSP">Activar BSPConvert para los siguientes códigos IATA:</label>
+            </div>
+            <input type="text" id="codigosIATA" name="codigosIATA" style="margin-top: 10px;">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="activarSubdominio" name="activarSubdominio" value="1">
+              <label for="activarSubdominio">Subdominio:</label>
+            </div>
+            <input type="text" id="subdominio" name="subdominio" style="margin-top: 10px;">
+            <p style="font-size: 0.9rem; color: var(--light-text); margin-top: 5px;">
+              Dado un subdominio 'agencia' la dirección del microsite de su agencia sería agencia.aavv.com
+            </p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <h3>Servicios opcionales</h3>
+            <div class="checkbox-item">
+              <input type="checkbox" id="dominiosPropios" name="dominiosPropios" value="1">
+              <label for="dominiosPropios">Dominios propios:</label>
+            </div>
+            <input type="text" id="dominios" name="dominios" style="margin-top: 10px;">
+            <p style="font-size: 0.9rem; color: var(--light-text); margin-top: 5px;">
+              Cuota anual por cada dominio: 53,50 euros + IVA (incluye tasas de registro, servicio de DNS,
+              hosting real para microsite y estadísticas avanzadas)
+            </p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <div style="display: flex; gap: 10px;">
+              <input type="text" id="dia" name="dia" placeholder="Día" style="width: 50px;" required>
+              <span style="align-self: center;">de</span>
+              <input type="text" id="mes" name="mes" placeholder="Mes" style="width: 120px;" required>
+              <span style="align-self: center;">de</span>
+              <input type="text" id="anio" name="anio" value="2025" style="width: 70px;" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2 class="section-header">NUEVA TARIFA ANUAL INTRANET AAVV.COM</h2>
+
+        <p>La Intranet AAVV.com no tiene cuota de alta y se aplica por anualidades anticipadas. En el momento de
+          contratación no se facturará la parte proporcional del año natural en curso, cuyos costes en 2025 son:</p>
+
+        <table class="tarifas">
+          <tr>
+            <td>Tarifa anual Intranet AAVV.com básica (incluye hasta 5 códigos de usuario * + Orbis Hoteles
+              Intranet AAVV.com para 1 oficina + 100 MB de espacio para archivos propios).</td>
+            <td>189,00 €</td>
+          </tr>
+          <tr>
+            <td>Tarifa anual Orbis Hoteles Intranet AAVV.com para cada oficina adicional (válida únicamente para
+              usuarios de la Intranet AAVV.com). Orbis Hoteles debe contratarse para todas las oficinas de la
+              agencia.</td>
+            <td>92,25 €</td>
+          </tr>
+          <tr>
+            <td>Tarifa anual bloque de 50 MB adicionales para almacenar documentos propios en la Intranet
+              AAVV.com.</td>
+            <td>13,32 €</td>
+          </tr>
+          <tr>
+            <td>Coste anual adicional por cada usuario adicional a partir del 6º inclusive.</td>
+            <td>11,80 €</td>
+          </tr>
+          <tr>
+            <td>Tarifa anual uso BSP Convert por cada código IATA: sin cargo para usuarios de Orbis con mantenimiento,
+              169,00€ para usuarios de Orbis sin mantenimiento y 278,50€ para usuarios sin Orbis.</td>
+            <td>Variable</td>
+          </tr>
+        </table>
+
+        <p class="footer-note">* Cada código de usuario puede ser utilizado por varios agentes de una o más oficinas de
+          la agencia, incluso de forma
+          simultánea. La utilización de distintos códigos de usuario permite disponer de distintas configuraciones en la
+          Intranet
+          AAVV.com (permisos, accesos a opciones y sistemas de reservas, ...).</p>
+
+        <p class="footer-note"><strong>Las tarifas indicadas no incluyen el I.V.A.</strong></p>
+
+        <div class="submit-row">
+          <div class="privacy-policy">
+            <div class="checkbox-item">
+              <input type="checkbox" id="politicaDatos" name="politicaDatos" required>
+              <label for="politicaDatos">Acepto la Política de Protección de Datos</label>
+            </div>
+            <p class="footer-note">
+              Los datos personales contenidos en este documento, así como los que puedan ser facilitados en el futuro
+              para el mismo
+              fin, sean recogidos y tratados de forma automatizada por Pipeline Software con la finalidad de gestionar y
+              desarrollar el
+              conjunto de servicios contratados, así como para el envío de publicidad y comunicaciones de Pipeline
+              Software,
+              incluyendo desarrollos y/o acciones en las que participa o colabora esta empresa. El tratamiento de los
+              datos de carácter
+              personal está sujeto al Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de
+              2016
+              (RGPD) y la normativa española (LOPD), Ley Orgánica 3/2018, de 5 de diciembre, y el reglamento que la
+              desarrolla,
+              así como futura normativa española que sustituya o complemente a esta legislación. Usted podrá ejercitar
+              en todo
+              momento sus derechos de acceso, limitación, rectificación, supresión, oposición, olvido y portabilidad a
+              través del
+              correo electrónico pipeline@pipeline.es o mediante correo postal, adjuntado copia de su DNI y dirigiendo
+              su solicitud a
+              C/Estatuto, 6A bajo - 12004 Castellón
