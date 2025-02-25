@@ -7,209 +7,262 @@
   <title>Formulario de Contratación Intranet AAVV.com</title>
   <style>
     :root {
-      --primary-color: #0056b3;
-      --secondary-color: #e9ecef;
-      --accent-color: #17a2b8;
-      --text-color: #333;
-      --light-text: #6c757d;
-      --border-color: #dee2e6;
-      --success-color: #28a745;
+      --primary-color: #1e3a8a;
+      --secondary-color: #f1f5f9;
+      --accent-color: #06b6d4;
+      --text-color: #1f2937;
+      --light-text: #6b7280;
+      --border-color: #e5e7eb;
+      --success-color: #16a34a;
+      --hover-color: #dbeafe;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
       color: var(--text-color);
-      background-color: #f8f9fa;
+      background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
       line-height: 1.6;
+      padding: 1rem;
     }
 
     .container {
-      max-width: 1140px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 1.5rem;
     }
 
     header {
       text-align: center;
+      padding: 2rem 1rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid var(--primary-color);
     }
 
     header h1 {
       color: var(--primary-color);
-      margin-bottom: 0.5rem;
+      font-size: 1.875rem;
+      font-weight: 700;
     }
 
     header p {
       color: var(--light-text);
-      font-size: 1.1rem;
+      font-size: 1.125rem;
     }
 
     .promocion {
-      background-color: var(--success-color);
+      background: var(--success-color);
       color: white;
       text-align: center;
-      padding: 0.5rem;
-      border-radius: 4px;
+      padding: 0.75rem;
+      border-radius: 8px;
       margin-bottom: 2rem;
-      font-weight: bold;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .form-section {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       padding: 2rem;
       margin-bottom: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .form-section:hover {
+      transform: translateY(-4px);
     }
 
     .section-header {
       color: var(--primary-color);
+      font-size: 1.5rem;
+      font-weight: 600;
       margin-bottom: 1.5rem;
       padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 2px solid var(--accent-color);
     }
 
     .form-row {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
       margin-bottom: 1rem;
     }
 
     .form-group {
-      flex: 1 1 300px;
-      margin-bottom: 1.5rem;
-      padding-right: 1rem;
+      margin-bottom: 1rem;
     }
 
     label {
       display: block;
       margin-bottom: 0.5rem;
       font-weight: 500;
+      color: var(--text-color);
     }
 
     input[type="text"],
     input[type="email"],
     input[type="tel"],
+    input[type="number"],
     select {
       width: 100%;
       padding: 0.75rem;
       border: 1px solid var(--border-color);
-      border-radius: 4px;
+      border-radius: 6px;
       font-size: 1rem;
+      background: #fff;
+      transition: border-color 0.2s;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
     }
 
     .checkbox-group {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
     }
 
     .checkbox-item {
-      flex: 1 1 220px;
-      margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
+      padding: 0.5rem;
+      border-radius: 6px;
+      transition: background 0.2s;
     }
 
-    .checkbox-item input[type="checkbox"] {
-      margin-right: 0.5rem;
+    .checkbox-item:hover {
+      background: var(--hover-color);
+    }
+
+    .checkbox-item input[type="checkbox"],
+    .checkbox-item input[type="radio"] {
+      margin-right: 0.75rem;
+      accent-color: var(--accent-color);
     }
 
     .sucursales {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
       margin-top: 1rem;
     }
 
     .sucursal {
-      flex: 1 1 300px;
       padding: 1.5rem;
-      background-color: var(--secondary-color);
-      border-radius: 8px;
+      background: var(--secondary-color);
+      border-radius: 10px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .sucursal h3 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-weight: 600;
     }
 
     .tarifas {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
     }
 
     .tarifas th,
     .tarifas td {
       border: 1px solid var(--border-color);
-      padding: 0.75rem;
+      padding: 1rem;
       text-align: left;
     }
 
     .tarifas th {
-      background-color: var(--secondary-color);
+      background: var(--secondary-color);
+      font-weight: 600;
+      color: var(--primary-color);
     }
 
     .tarifas td:last-child {
       text-align: right;
-      font-weight: bold;
+      font-weight: 600;
+      color: var(--text-color);
     }
 
     .submit-row {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
       margin-top: 2rem;
     }
 
     .privacy-policy {
-      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     button[type="submit"] {
-      background-color: var(--primary-color);
+      background: var(--primary-color);
       color: white;
       border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 4px;
+      padding: 0.875rem;
+      font-size: 1.125rem;
+      border-radius: 6px;
       cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.2s;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+      width: 100%;
     }
 
     button[type="submit"]:hover {
-      background-color: #004494;
+      background: #1e40af;
+      transform: translateY(-2px);
     }
 
     .footer-note {
-      font-size: 0.85rem;
+      font-size: 0.875rem;
       color: var(--light-text);
-      margin-top: 2rem;
+      margin-top: 1.5rem;
+      font-style: italic;
     }
 
     .nota {
-      background-color: #fff3cd;
-      padding: 0.75rem;
-      border-left: 4px solid #ffc107;
+      background: #fefce8;
+      padding: 1rem;
+      border-left: 4px solid #facc15;
+      border-radius: 6px;
       margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
-      .form-group {
-        flex: 1 1 100%;
+      .form-row {
+        grid-template-columns: 1fr;
       }
 
-      .submit-row {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .privacy-policy {
-        margin-bottom: 1rem;
+      .sucursales {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -226,7 +279,7 @@
       GRATUITO HASTA EL 31-12-25
     </div>
 
-    <form id="contratacion-form">
+    <form id="contratacion-form" onsubmit="sendForm(event)">
       <div class="form-section">
         <h2 class="section-header">DATOS DE LA AGENCIA SOLICITANTE</h2>
 
@@ -297,7 +350,7 @@
           </div>
 
           <div class="form-group">
-            <label for="tituloLicencia">Titulo-Licencia Agencia:</label>
+            <label for="tituloLicencia">Título-Licencia Agencia:</label>
             <input type="text" id="tituloLicencia" name="tituloLicencia" required>
           </div>
         </div>
@@ -305,13 +358,15 @@
         <div class="form-row">
           <div class="form-group">
             <label>IATA:</label>
-            <div>
-              <label style="display: inline; margin-right: 20px;">
-                <input type="radio" name="iata" value="no" checked> No
-              </label>
-              <label style="display: inline;">
-                <input type="radio" name="iata" value="si"> Sí
-              </label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="radio" name="iata" id="iataNo" value="no" checked>
+                <label for="iataNo">No</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="radio" name="iata" id="iataSi" value="si">
+                <label for="iataSi">Sí</label>
+              </div>
             </div>
           </div>
 
@@ -425,8 +480,8 @@
                 <label for="gestionOtro">Otro</label>
               </div>
             </div>
-            <div class="form-group" style="margin-top: 10px;">
-              <label for="gestionOtroDetalle">Indique cual:</label>
+            <div class="form-group" style="margin-top: 1rem;">
+              <label for="gestionOtroDetalle">Indique cuál:</label>
               <input type="text" id="gestionOtroDetalle" name="gestionOtroDetalle">
             </div>
           </div>
@@ -457,8 +512,8 @@
                 <label for="gdsOtro">Otro</label>
               </div>
             </div>
-            <div class="form-group" style="margin-top: 10px;">
-              <label for="gdsOtroDetalle">Indique cual:</label>
+            <div class="form-group" style="margin-top: 1rem;">
+              <label for="gdsOtroDetalle">Indique cuál:</label>
               <input type="text" id="gdsOtroDetalle" name="gdsOtroDetalle">
             </div>
           </div>
@@ -569,7 +624,7 @@
               <input type="checkbox" id="activarBSP" name="activarBSP" value="1">
               <label for="activarBSP">Activar BSPConvert para los siguientes códigos IATA:</label>
             </div>
-            <input type="text" id="codigosIATA" name="codigosIATA" style="margin-top: 10px;">
+            <input type="text" id="codigosIATA" name="codigosIATA" style="margin-top: 0.75rem;">
           </div>
         </div>
 
@@ -579,9 +634,9 @@
               <input type="checkbox" id="activarSubdominio" name="activarSubdominio" value="1">
               <label for="activarSubdominio">Subdominio:</label>
             </div>
-            <input type="text" id="subdominio" name="subdominio" style="margin-top: 10px;">
-            <p style="font-size: 0.9rem; color: var(--light-text); margin-top: 5px;">
-              Dado un subdominio 'agencia' la dirección del microsite de su agencia sería agencia.aavv.com
+            <input type="text" id="subdominio" name="subdominio" style="margin-top: 0.75rem;">
+            <p style="font-size: 0.875rem; color: var(--light-text); margin-top: 0.5rem;">
+              Dado un subdominio 'agencia', la dirección del microsite de su agencia sería agencia.aavv.com
             </p>
           </div>
         </div>
@@ -593,8 +648,8 @@
               <input type="checkbox" id="dominiosPropios" name="dominiosPropios" value="1">
               <label for="dominiosPropios">Dominios propios:</label>
             </div>
-            <input type="text" id="dominios" name="dominios" style="margin-top: 10px;">
-            <p style="font-size: 0.9rem; color: var(--light-text); margin-top: 5px;">
+            <input type="text" id="dominios" name="dominios" style="margin-top: 0.75rem;">
+            <p style="font-size: 0.875rem; color: var(--light-text); margin-top: 0.5rem;">
               Cuota anual por cada dominio: 53,50 euros + IVA (incluye tasas de registro, servicio de DNS,
               hosting real para microsite y estadísticas avanzadas)
             </p>
@@ -604,12 +659,12 @@
         <div class="form-row">
           <div class="form-group">
             <label for="fecha">Fecha:</label>
-            <div style="display: flex; gap: 10px;">
-              <input type="text" id="dia" name="dia" placeholder="Día" style="width: 50px;" required>
-              <span style="align-self: center;">de</span>
+            <div style="display: flex; gap: 0.75rem; align-items: center;">
+              <input type="text" id="dia" name="dia" placeholder="Día" style="width: 60px;" required>
+              <span>de</span>
               <input type="text" id="mes" name="mes" placeholder="Mes" style="width: 120px;" required>
-              <span style="align-self: center;">de</span>
-              <input type="text" id="anio" name="anio" value="2025" style="width: 70px;" readonly>
+              <span>de</span>
+              <input type="text" id="anio" name="anio" value="2025" style="width: 80px;" readonly>
             </div>
           </div>
         </div>
@@ -650,10 +705,8 @@
         </table>
 
         <p class="footer-note">* Cada código de usuario puede ser utilizado por varios agentes de una o más oficinas de
-          la agencia, incluso de forma
-          simultánea. La utilización de distintos códigos de usuario permite disponer de distintas configuraciones en la
-          Intranet
-          AAVV.com (permisos, accesos a opciones y sistemas de reservas, ...).</p>
+          la agencia, incluso de forma simultánea. La utilización de distintos códigos de usuario permite disponer de
+          distintas configuraciones en la Intranet AAVV.com (permisos, accesos a opciones y sistemas de reservas, ...).</p>
 
         <p class="footer-note"><strong>Las tarifas indicadas no incluyen el I.V.A.</strong></p>
 
@@ -661,25 +714,106 @@
           <div class="privacy-policy">
             <div class="checkbox-item">
               <input type="checkbox" id="politicaDatos" name="politicaDatos" required>
-              <label for="politicaDatos">Acepto la Política de Protección de Datos</label>
+              <label for="politicaDatos">
+                Acepto la <a href="https://www.pipeline.es/politica-de-privacidad.htm" target="_blank">Política de Protección de Datos</a>
+              </label>
             </div>
+            <button type="submit">Enviar Solicitud</button>
             <p class="footer-note">
               Los datos personales contenidos en este documento, así como los que puedan ser facilitados en el futuro
-              para el mismo
-              fin, sean recogidos y tratados de forma automatizada por Pipeline Software con la finalidad de gestionar y
-              desarrollar el
-              conjunto de servicios contratados, así como para el envío de publicidad y comunicaciones de Pipeline
-              Software,
-              incluyendo desarrollos y/o acciones en las que participa o colabora esta empresa. El tratamiento de los
-              datos de carácter
-              personal está sujeto al Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de
-              2016
-              (RGPD) y la normativa española (LOPD), Ley Orgánica 3/2018, de 5 de diciembre, y el reglamento que la
-              desarrolla,
-              así como futura normativa española que sustituya o complemente a esta legislación. Usted podrá ejercitar
-              en todo
-              momento sus derechos de acceso, limitación, rectificación, supresión, oposición, olvido y portabilidad a
-              través del
-              correo electrónico pipeline@pipeline.es o mediante correo postal, adjuntado copia de su DNI y dirigiendo
-              su solicitud a
-              C/Estatuto, 6A bajo - 12004 Castellón
+              para el mismo fin, sean recogidos y tratados de forma automatizada por Pipeline Software con la finalidad
+              de gestionar y desarrollar el conjunto de servicios contratados, así como para el envío de publicidad y
+              comunicaciones de Pipeline Software, incluyendo desarrollos y/o acciones en las que participa o colabora
+              esta empresa. El tratamiento de los datos de carácter personal está sujeto al Reglamento (UE) 2016/679 del
+              Parlamento Europeo y del Consejo, de 27 de abril de 2016 (RGPD) y la normativa española (LOPD), Ley
+              Orgánica 3/2018, de 5 de diciembre, y el reglamento que la desarrolla, así como futura normativa española
+              que sustituya o complemente a esta legislación. Usted podrá ejercitar en todo momento sus derechos de
+              acceso, limitación, rectificación, supresión, oposición, olvido y portabilidad a través del correo
+              electrónico pipeline@pipeline.es o mediante correo postal, adjuntado copia de su DNI y dirigiendo su
+              solicitud a C/Estatuto, 6A bajo - 12004 Castellón
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function sendForm(event) {
+      event.preventDefault();
+
+      const form = document.getElementById('contratacion-form');
+      const formData = new FormData(form);
+      let formContent = "FORMULARIO DE CONTRATACIÓN INTRANET AAVV.COM\n\n";
+
+      // Datos de la Agencia Solicitante
+      formContent += "DATOS DE LA AGENCIA SOLICITANTE\n";
+      formContent += `Razón Social: ${formData.get('razonSocial')}\n`;
+      formContent += `CIF: ${formData.get('cif')}\n`;
+      formContent += `Nombre Comercial: ${formData.get('nombreComercial') || 'N/A'}\n`;
+      formContent += `Domicilio Social: ${formData.get('domicilioSocial')}\n`;
+      formContent += `Código Postal: ${formData.get('codigoPostal')}\n`;
+      formContent += `Población: ${formData.get('poblacion')}\n`;
+      formContent += `Provincia: ${formData.get('provincia')}\n`;
+      formContent += `Teléfono: ${formData.get('telefono')}\n`;
+      formContent += `Fax: ${formData.get('fax') || 'N/A'}\n`;
+      formContent += `E-mail: ${formData.get('email')}\n`;
+      formContent += `Representante Legal: ${formData.get('representanteLegal')}\n`;
+      formContent += `Título-Licencia Agencia: ${formData.get('tituloLicencia')}\n`;
+      formContent += `IATA: ${formData.get('iata')}\n`;
+      formContent += `Título IATA: ${formData.get('tituloIATA') || 'N/A'}\n`;
+      formContent += `Grupos y/o Asociaciones: ${formData.get('grupos') || 'N/A'}\n\n`;
+
+      // Datos de las Sucursales
+      formContent += "DATOS DE LAS SUCURSALES\n";
+      formContent += "Sucursal 1\n";
+      formContent += `Domicilio: ${formData.get('sucursal1Domicilio') || 'N/A'}\n`;
+      formContent += `Código Postal: ${formData.get('sucursal1CP') || 'N/A'}\n`;
+      formContent += `Población: ${formData.get('sucursal1Poblacion') || 'N/A'}\n`;
+      formContent += `Provincia: ${formData.get('sucursal1Provincia') || 'N/A'}\n`;
+      formContent += `Teléfono: ${formData.get('sucursal1Telefono') || 'N/A'}\n`;
+      formContent += `Email: ${formData.get('sucursal1Email') || 'N/A'}\n\n`;
+      formContent += "Sucursal 2\n";
+      formContent += `Domicilio: ${formData.get('sucursal2Domicilio') || 'N/A'}\n`;
+      formContent += `Código Postal: ${formData.get('sucursal2CP') || 'N/A'}\n`;
+      formContent += `Población: ${formData.get('sucursal2Poblacion') || 'N/A'}\n`;
+      formContent += `Provincia: ${formData.get('sucursal2Provincia') || 'N/A'}\n`;
+      formContent += `Teléfono: ${formData.get('sucursal2Telefono') || 'N/A'}\n`;
+      formContent += `Email: ${formData.get('sucursal2Email') || 'N/A'}\n\n`;
+
+      // Datos de Contratación
+      formContent += "DATOS DE CONTRATACIÓN\n";
+      formContent += `Aplicación de Gestión utilizada: ${formData.get('gestion')}\n`;
+      formContent += `Otra Aplicación (si aplica): ${formData.get('gestionOtroDetalle') || 'N/A'}\n`;
+      formContent += `GDS utilizado: ${formData.get('gds')}\n`;
+      formContent += `Otro GDS (si aplica): ${formData.get('gdsOtroDetalle') || 'N/A'}\n`;
+      formContent += `Proveedores seleccionados: ${formData.getAll('proveedores[]').join(', ') || 'Ninguno'}\n\n`;
+
+      // Intranet AAVV.com
+      formContent += "INTRANET AAVV.COM\n";
+      formContent += `Número de Usuarios: ${formData.get('numUsuarios')}\n`;
+      formContent += `Activar BSPConvert: ${formData.get('activarBSP') ? 'Sí' : 'No'}\n`;
+      formContent += `Códigos IATA: ${formData.get('codigosIATA') || 'N/A'}\n`;
+      formContent += `Subdominio: ${formData.get('activarSubdominio') ? formData.get('subdominio') : 'No'}\n`;
+      formContent += `Dominios Propios: ${formData.get('dominiosPropios') ? formData.get('dominios') : 'No'}\n`;
+      formContent += `Fecha: ${formData.get('dia')} de ${formData.get('mes')} de ${formData.get('anio')}\n\n`;
+
+      // Generar archivo de texto
+      const blob = new Blob([formContent], { type: 'text/plain' });
+      const fileUrl = URL.createObjectURL(blob);
+
+      // Crear enlace mailto con archivo adjunto
+      const subject = encodeURIComponent('Formulario de Contratación Intranet AAVV.com');
+      const emailBody = encodeURIComponent('Adjunto el formulario cumplimentado.');
+      const mailtoLink = `mailto:pastora@pipeline.es?subject=${subject}&body=${emailBody}&attachment=${fileUrl}`;
+
+      // Abrir el cliente de correo
+      window.location.href = mailtoLink;
+
+      // Limpiar URL después de usarla
+      setTimeout(() => URL.revokeObjectURL(fileUrl), 1000);
+    }
+  </script>
+</body>
+
+</html>
